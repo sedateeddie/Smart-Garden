@@ -1,0 +1,4 @@
+// CLI command to change ports when Node-Red is not run as root, and you want alexa voice control (this is for wlan)
+sudo apt-get install iptables-persistent sudo iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT
+sudo iptables -A PREROUTING -t nat -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port <DESIRED_PORT> // Think port has to be 8980?
+sudo netfilter-persistent save sudo netfilter-persistent reload
