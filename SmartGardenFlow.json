@@ -1,0 +1,1292 @@
+[
+    {
+        "id": "88de1fbc.bf4af",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c6bde387.25f2d",
+        "type": "group",
+        "z": "88de1fbc.bf4af",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6697dc8f.54fee4",
+            "29116f85.857a1",
+            "396ca260.55320e",
+            "ef2b15fd.f5fc38",
+            "75b3d28b.d2155c",
+            "82cc3838.1f8978",
+            "8f12b449.01a4f8",
+            "6e0b7426.64ddbc",
+            "d91a7194.a5c42",
+            "ce4eff2f.55d1",
+            "61a92f07.c9937",
+            "c6c0ff9d.bd01b",
+            "9c0cc8fa.2b4eb8",
+            "5e36f2de.1f084c",
+            "32916d0c.e3be42",
+            "eea72b60.33dcd8",
+            "c9bf842c.6dea68",
+            "b48498c.dc8c368",
+            "8bc42d0f.848",
+            "280b2f37.ba3f1",
+            "7ecbc747.3a51f8",
+            "fd905aed.921098",
+            "a0863582.204a98",
+            "595c172a.2cbd68",
+            "c528a41b.de4ec8",
+            "c8f81fc.efe00e",
+            "9683277e.d3fb18",
+            "a015582.4b9e2a8",
+            "6b4383e3.68b4cc",
+            "a649ab83.eb23d8",
+            "d818022a.4c81c",
+            "8f9b2a7a.f47c28",
+            "ba525e1b.cdca",
+            "2be8ca3d.176056",
+            "6c0ff0a9.ba5bc",
+            "25d47ac9.0f0bd6",
+            "c85460a.153f7a"
+        ],
+        "x": 34,
+        "y": -21,
+        "w": 1732,
+        "h": 642
+    },
+    {
+        "id": "d3dffb9d.9b8bf8",
+        "type": "group",
+        "z": "88de1fbc.bf4af",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a13dc1a4.73ea4",
+            "d4519db2.659bc",
+            "6ebd5644.64ec08",
+            "8ad66b07.b2d078",
+            "ffd4f227.88866",
+            "b988e45c.ffab18",
+            "e058ab1d.3dfbe8",
+            "16f495e.124786a",
+            "846d944b.44fe88",
+            "ef45536e.98aea",
+            "b7b11c6e.2b936",
+            "186d56b5.2d7519",
+            "d449e8f7.57a198",
+            "9a292173.3c727",
+            "fea6fa5f.91ce68",
+            "76ed5425.4e8d8c"
+        ],
+        "x": 274,
+        "y": 1111.5,
+        "w": 882,
+        "h": 437
+    },
+    {
+        "id": "6697dc8f.54fee4",
+        "type": "serial in",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Arduino",
+        "serial": "d9cb4727.b82198",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "75b3d28b.d2155c",
+                "82cc3838.1f8978",
+                "d91a7194.a5c42",
+                "c9bf842c.6dea68",
+                "b48498c.dc8c368",
+                "8bc42d0f.848"
+            ]
+        ]
+    },
+    {
+        "id": "29116f85.857a1",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "396ca260.55320e",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "9623840e.b4f368",
+        "name": "Moisture",
+        "measurement": "moisture",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1000,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ef2b15fd.f5fc38",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 40,
+        "wires": [
+            [
+                "9c0cc8fa.2b4eb8",
+                "29116f85.857a1"
+            ]
+        ]
+    },
+    {
+        "id": "a13dc1a4.73ea4",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 790,
+        "y": 1160,
+        "wires": [
+            [
+                "8ad66b07.b2d078"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d4519db2.659bc",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "Garden reboot",
+        "topic": "",
+        "x": 620,
+        "y": 1160,
+        "wires": [
+            [
+                "a13dc1a4.73ea4"
+            ]
+        ]
+    },
+    {
+        "id": "6ebd5644.64ec08",
+        "type": "amazon-echo-hub",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "port": "8980",
+        "processinput": 0,
+        "discovery": true,
+        "x": 390,
+        "y": 1160,
+        "wires": [
+            [
+                "d4519db2.659bc",
+                "ffd4f227.88866",
+                "ef45536e.98aea",
+                "b7b11c6e.2b936",
+                "186d56b5.2d7519",
+                "d449e8f7.57a198"
+            ]
+        ]
+    },
+    {
+        "id": "8ad66b07.b2d078",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "75b3d28b.d2155c",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Humidity",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "%",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 40,
+        "wires": [
+            [
+                "ef2b15fd.f5fc38"
+            ]
+        ]
+    },
+    {
+        "id": "82cc3838.1f8978",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Temperature",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "*C",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "8f12b449.01a4f8"
+            ]
+        ]
+    },
+    {
+        "id": "8f12b449.01a4f8",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 180,
+        "wires": [
+            [
+                "c6c0ff9d.bd01b",
+                "6e0b7426.64ddbc"
+            ]
+        ]
+    },
+    {
+        "id": "6e0b7426.64ddbc",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d91a7194.a5c42",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Moisture Lilly",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "a",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "ce4eff2f.55d1"
+            ]
+        ]
+    },
+    {
+        "id": "ce4eff2f.55d1",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "396ca260.55320e",
+                "5e36f2de.1f084c",
+                "c528a41b.de4ec8"
+            ]
+        ]
+    },
+    {
+        "id": "61a92f07.c9937",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c6c0ff9d.bd01b",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "9eecbf2f.7dd67",
+        "name": "Temperature",
+        "measurement": "*C",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1010,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9c0cc8fa.2b4eb8",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "373fa459.54e07c",
+        "name": "Humidity",
+        "measurement": "humidity",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1000,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "ffd4f227.88866",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "garden update",
+        "topic": "",
+        "x": 620,
+        "y": 1220,
+        "wires": [
+            [
+                "b988e45c.ffab18"
+            ]
+        ]
+    },
+    {
+        "id": "b988e45c.ffab18",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "./update.sh",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 790,
+        "y": 1220,
+        "wires": [
+            [
+                "e058ab1d.3dfbe8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e058ab1d.3dfbe8",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "16f495e.124786a",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "sudo python pump.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 860,
+        "y": 1280,
+        "wires": [
+            [
+                "846d944b.44fe88"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "846d944b.44fe88",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "ef45536e.98aea",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "Peace Lily Water",
+        "topic": "",
+        "x": 640,
+        "y": 1280,
+        "wires": [
+            [
+                "16f495e.124786a"
+            ]
+        ]
+    },
+    {
+        "id": "5e36f2de.1f084c",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "20",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1190,
+        "y": 220,
+        "wires": [
+            [
+                "eea72b60.33dcd8"
+            ]
+        ]
+    },
+    {
+        "id": "32916d0c.e3be42",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "command": "sudo python pump.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1600,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "eea72b60.33dcd8",
+        "type": "delay",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1380,
+        "y": 260,
+        "wires": [
+            [
+                "32916d0c.e3be42"
+            ]
+        ]
+    },
+    {
+        "id": "c9bf842c.6dea68",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Moisture Fishbone",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "b",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "280b2f37.ba3f1"
+            ]
+        ]
+    },
+    {
+        "id": "b48498c.dc8c368",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Moisture Fern",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "d",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "7ecbc747.3a51f8"
+            ]
+        ]
+    },
+    {
+        "id": "8bc42d0f.848",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "Moisture Ivy",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "e",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "fd905aed.921098"
+            ]
+        ]
+    },
+    {
+        "id": "280b2f37.ba3f1",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 320,
+        "wires": [
+            [
+                "a0863582.204a98",
+                "c8f81fc.efe00e",
+                "6b4383e3.68b4cc"
+            ]
+        ]
+    },
+    {
+        "id": "7ecbc747.3a51f8",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "61a92f07.c9937",
+                "9683277e.d3fb18",
+                "a649ab83.eb23d8"
+            ]
+        ]
+    },
+    {
+        "id": "fd905aed.921098",
+        "type": "function",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 780,
+        "y": 520,
+        "wires": [
+            [
+                "595c172a.2cbd68",
+                "a015582.4b9e2a8",
+                "d818022a.4c81c"
+            ]
+        ]
+    },
+    {
+        "id": "a0863582.204a98",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "595c172a.2cbd68",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c528a41b.de4ec8",
+        "type": "debug",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c8f81fc.efe00e",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "fd2c0077.ed668",
+        "name": "Fishbone Prayer",
+        "measurement": "moisture",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1000,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9683277e.d3fb18",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "5df44303.9cddcc",
+        "name": "Boston Fern",
+        "measurement": "moisture",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 990,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a015582.4b9e2a8",
+        "type": "influxdb out",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "influxdb": "c7c2b02.18c9e5",
+        "name": "Devil's Ivy",
+        "measurement": "moisture",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1000,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6b4383e3.68b4cc",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "20",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 340,
+        "wires": [
+            [
+                "8f9b2a7a.f47c28"
+            ]
+        ]
+    },
+    {
+        "id": "a649ab83.eb23d8",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 440,
+        "wires": [
+            [
+                "ba525e1b.cdca"
+            ]
+        ]
+    },
+    {
+        "id": "d818022a.4c81c",
+        "type": "switch",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1200,
+        "y": 560,
+        "wires": [
+            [
+                "2be8ca3d.176056"
+            ]
+        ]
+    },
+    {
+        "id": "8f9b2a7a.f47c28",
+        "type": "delay",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1410,
+        "y": 360,
+        "wires": [
+            [
+                "6c0ff0a9.ba5bc"
+            ]
+        ]
+    },
+    {
+        "id": "ba525e1b.cdca",
+        "type": "delay",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1400,
+        "y": 440,
+        "wires": [
+            [
+                "25d47ac9.0f0bd6"
+            ]
+        ]
+    },
+    {
+        "id": "2be8ca3d.176056",
+        "type": "delay",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1400,
+        "y": 560,
+        "wires": [
+            [
+                "c85460a.153f7a"
+            ]
+        ]
+    },
+    {
+        "id": "6c0ff0a9.ba5bc",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "command": "sudo python pump1.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1620,
+        "y": 360,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "25d47ac9.0f0bd6",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "command": "sudo python pump2.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1620,
+        "y": 440,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c85460a.153f7a",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "c6bde387.25f2d",
+        "command": "sudo python pump 3.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1630,
+        "y": 560,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b7b11c6e.2b936",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "Fishbone water",
+        "topic": "",
+        "x": 640,
+        "y": 1360,
+        "wires": [
+            [
+                "9a292173.3c727"
+            ]
+        ]
+    },
+    {
+        "id": "186d56b5.2d7519",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "Fern Water",
+        "topic": "",
+        "x": 650,
+        "y": 1420,
+        "wires": [
+            [
+                "fea6fa5f.91ce68"
+            ]
+        ]
+    },
+    {
+        "id": "d449e8f7.57a198",
+        "type": "amazon-echo-device",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "name": "Ivy Water",
+        "topic": "",
+        "x": 640,
+        "y": 1480,
+        "wires": [
+            [
+                "76ed5425.4e8d8c"
+            ]
+        ]
+    },
+    {
+        "id": "9a292173.3c727",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "sudo python pump1.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 920,
+        "y": 1360,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fea6fa5f.91ce68",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "sudo python pump2.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 940,
+        "y": 1420,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "76ed5425.4e8d8c",
+        "type": "exec",
+        "z": "88de1fbc.bf4af",
+        "g": "d3dffb9d.9b8bf8",
+        "command": "sudo python pump3.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 950,
+        "y": 1500,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d9cb4727.b82198",
+        "type": "serial-port",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "9623840e.b4f368",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Soil_Moisture",
+        "name": "moisture%",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "9eecbf2f.7dd67",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "TEMPERATURE",
+        "name": "Temperature",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "373fa459.54e07c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "HUMIDITY",
+        "name": "Humidity",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "fd2c0077.ed668",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Fishbone_Prayer",
+        "name": "Fishbone Prayer",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "5df44303.9cddcc",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Boston_Fern",
+        "name": "Boston Fern",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "c7c2b02.18c9e5",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Devils_Ivy",
+        "name": "Devil's Ivy",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    }
+]
