@@ -13,20 +13,20 @@
 
 
 DHT dht(DHTPIN, DHTTYPE);
-const int AirValue1 = 655;   //you need to replace this value with Value_1
-const int WaterValue1 = 346;  //you need to replace this value with Value_2
+const int AirValue1 = 655;   //you need to replace this value with the value from the sensor in air
+const int WaterValue1 = 346;  //you need to replace this value with the value from the sensor in water
 int soilMoistureValue1 = 0;
 int soilmoisturepercent1=0;
-const int AirValue2 = 606;   //you need to replace this value with Value_1
-const int WaterValue2 = 252;  //you need to replace this value with Value_2
+const int AirValue2 = 606;   //you need to replace this value with the value from the sensor in air
+const int WaterValue2 = 252;  //you need to replace this value with value from the sensor in water
 int soilMoistureValue2 = 0;
 int soilmoisturepercent2=0;
-const int AirValue3 = 606;   //you need to replace this value with Value_1
-const int WaterValue3 = 256;  //you need to replace this value with Value_2
+const int AirValue3 = 606;   //you need to replace this value with the value from the sensor in air
+const int WaterValue3 = 256;  //you need to replace this value with value from the sensor in water
 int soilMoistureValue3 = 0;
 int soilmoisturepercent3=0;
-const int AirValue4 = 601;   //you need to replace this value with Value_1
-const int WaterValue4 = 261;  //you need to replace this value with Value_2
+const int AirValue4 = 601;   //you need to replace this value with the value from the sensor in air
+const int WaterValue4 = 261;  //you need to replace this value with value from the sensor in water
 int soilMoistureValue4 = 0;
 int soilmoisturepercent4=0;
 void setup() {
