@@ -17,7 +17,7 @@ if __name__ == '__main__':
     try:
         motor_on(channel)
         print("ON")
-        time.sleep(2) // Will run pump for two seconds
+        time.sleep(2) # Will run pump for two seconds
         motor_off(channel)
         print("OFF")
         GPIO.cleanup()
